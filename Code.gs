@@ -1,5 +1,5 @@
-var slideTemplateId = "1dRtRkwaA9IGwD6Own9r2yrW-3hop-L9hMRAttX3t4IA"; // Sample: https://docs.google.com/presentation/d/1dRtRkwaA9IGwD6Own9r2yrW-3hop-L9hMRAttX3t4IA
-var tempFolderId = "1gNcBJRIbZvVGpRLDsGC96UL1Lb_A942m"; // Create an empty folder in Google Drive
+var slideTemplateId = "XXX"; // Sample: https://docs.google.com/presentation/d/1dRtRkwaA9IGwD6Own9r2yrW-3hop-L9hMRAttX3t4IA
+var tempFolderId = "XXX"; // Create an empty folder in Google Drive
 
 /**
  * Creates a custom menu "Appreciation" in the spreadsheet
@@ -73,14 +73,15 @@ function sendCertificates() {
     var studEmail = rowData[studEmailIndex];
     
     // Load the Student's personalized Google Slide file
-    var attachment = DriveApp.getFileById(studSlideId);
+    var attachment1 = DriveApp.getFileById(studSlideId);
+    var attachment2 = DriveApp.getFileById("XXX");
     
     // Setup the required parameters and send them the email
-    var senderName = "Google Developer Student Clubs - BBSBEC";
-    var subject = studName + ", you're awesome!";
-    var body = "Please find your 30 Days Google Cloud Caompaign certificate attached."; // Email will be sent by the mail address logged in while running the script
+    var senderName = "Google Developer Student Clubs - SRM Ramapuram";
+    var subject = "Certificate of participation - 30 days of Google cloud.";
+    var body = "Dear Participant,\n\nPlease read the information given in the attached file carefully"; // Email will be sent by the mail address logged in while running the script
     GmailApp.sendEmail(studEmail, subject, body, {
-      attachments: [attachment.getAs(MimeType.PDF)],
+      attachments: [attachment1.getAs(MimeType.PDF),attachment2.getAs(MimeType.PDF)],
       name: senderName,
     });
 
